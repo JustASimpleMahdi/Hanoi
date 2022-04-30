@@ -1,3 +1,5 @@
+const rodEls = document.querySelectorAll(".rod")
+
 
 let moves = []
 
@@ -19,4 +21,20 @@ function hanoi(n, start, end) {
 function move_one(start, end) {
     console.log(`${start} -> ${end}`)
     moves.push({ start, end })
+}
+
+let i = 0
+// console.log(moves)
+const interval = setInterval(() => {
+    // clearInterval(interval)
+    move_piece(moves[i])
+    i++
+    if (i >= moves.length) clearInterval(interval)
+}, 500)
+function move_piece({ start, end }) {
+    console.log({ start, end })
+    let firstEl = rodEls[start - 1].querySelector("span")
+
+    rodEls[start - 1].removeChild(firstEl)
+    rodEls[end - 1].prepend(firstEl.cloneNode())
 }
