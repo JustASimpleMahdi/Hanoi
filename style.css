@@ -1,3 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    width: 600px;
+    border-bottom: 20px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.rod {
+    width: 15px;
+    height: 200px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    /* flex-direction: column-reverse; */
+}
+
+.rod span {
+    transform: translate(calc(-50% + 7.5px));
+    width: calc(10px + var(--size) * 40px);
+    height: calc(20px + (var(--size) - 1) * 2px);
+    border-radius: 5px;
+    background-color: hsl(calc(var(--size) * 255 / 4), 50%, 50%);
 }

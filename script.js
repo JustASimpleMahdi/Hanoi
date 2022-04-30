@@ -1,3 +1,7 @@
+
+let moves = []
+
+
 hanoi(3, 1, 3)
 
 
@@ -14,4 +18,5 @@ function hanoi(n, start, end) {
 }
 function move_one(start, end) {
     console.log(`${start} -> ${end}`)
+    moves.push({ start, end })
 }
