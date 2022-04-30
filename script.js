@@ -1,11 +1,29 @@
 const rodEls = document.querySelectorAll(".rod")
+const solveButton = document.querySelector("#solve")
 
+const speed = 200
 
 let moves = []
 
 
-hanoi(3, 1, 3)
+solveButton.addEventListener("click", Solve)
 
+function Solve() {
+    hanoi(3, 1, 3)
+
+    solveButton.innerHTML = "Solving..."
+    solveButton.disabled = true
+
+    let i = 0
+    const interval = setInterval(() => {
+        move_piece(moves[i])
+        i++
+        if (i >= moves.length) {
+            solveButton.innerHTML = "Solved!"
+            clearInterval(interval)
+        }
+    }, speed)
+}
 
 function hanoi(n, start, end) {
     if (n === 1) move_one(start, end)
@@ -22,12 +40,7 @@ function move_one(start, end) {
     moves.push({ start, end })
 }
 
-let i = 0
-const interval = setInterval(() => {
-    move_piece(moves[i])
-    i++
-    if (i >= moves.length) clearInterval(interval)
-}, 500)
+
 function move_piece({ start, end }) {
     let firstEl = rodEls[start - 1].querySelector("span")
 
