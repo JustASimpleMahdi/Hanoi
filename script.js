@@ -1,15 +1,27 @@
 const rodEls = document.querySelectorAll(".rod")
 const solveButton = document.querySelector("#solve")
 
-const speed = 200
+const count = 3
+const speed = 5 * 10 ** 3 / (count ** 2)
+
+CreateDiscs()
+
 
 let moves = []
 
 
 solveButton.addEventListener("click", Solve)
 
+function CreateDiscs() {
+    for (let i = 0; i < count; i++) {
+        let span = document.createElement("span")
+        span.style.setProperty("--size", i + 1)
+        rodEls[0].appendChild(span)
+    }
+}
+
 function Solve() {
-    hanoi(3, 1, 3)
+    hanoi(count, 1, 3)
 
     solveButton.innerHTML = "Solving..."
     solveButton.disabled = true
