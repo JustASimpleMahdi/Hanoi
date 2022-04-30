@@ -19,7 +19,6 @@ function hanoi(n, start, end) {
     }
 }
 function move_one(start, end) {
-    console.log(`${start} -> ${end}`)
     moves.push({ start, end })
 }
 
