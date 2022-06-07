@@ -55,9 +55,11 @@ body {
 }
 
 .rod span {
-    transform: translate(calc(-50% + 7.5px));
+
+    transform: translateX(calc(-50% + 7.5px));
     width: calc(10px + var(--size) * 40px);
     height: calc(20px + (var(--size) - 1) * 2px);
     border-radius: 5px;
     background-color: hsl(calc(var(--size) * 255 / 4), 50%, 50%);
+    z-index: 2;
 }
